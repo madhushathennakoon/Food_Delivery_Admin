@@ -48,7 +48,7 @@ const List = () => {
           list.map((food) => {
             return (
               <div key={food._id} className="list-table-format">
-                <img />
+                <img src={food.imageUrl} />
                 <p>{food.name}</p>
                 <p>{food.category}</p>
                 <p>${food.price}</p>
