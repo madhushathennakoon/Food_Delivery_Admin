@@ -3,18 +3,39 @@ import "./Add.css";
 import { assets } from "../../assets/assets";
 import axios from "axios";
 import { toast } from "react-toastify";
+import app from "../../firebase";
+import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
+
+// imageUrl
 
 const Add = () => {
   const [name, setName] = useState("");
   const [desc, setDesc] = useState("");
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");
+  const [photo, setPhoto] = useState("");
+  const [displayPhoto, setDisplayPhoto] = useState("");
+
+  const imgConvert = (data) => {
+    setDisplayPhoto(URL.createObjectURL(data));
+  };
+
+  const uploadFile = async () => {
+    const storage = getStorage(app);
+    const imageRef = ref(storage, "image/" + photo.name);
+
+    const res = await uploadBytes(imageRef, photo);
+    const url = await getDownloadURL(res.ref);
+    return url;
+  };
 
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
+      const imageUrl = await uploadFile();
+      console.log(`path: ${imageUrl}`);
 
-      const foodItem = { name, desc, category, price };
+      const foodItem = { name, desc, category, price, imageUrl };
 
       const response = await axios.post(
         "http://localhost:4000/api/food/add",
@@ -26,10 +47,12 @@ const Add = () => {
         setDesc("");
         setCategory("");
         setPrice("");
+        setPhoto("");
+        setDisplayPhoto("");
         toast.success("Food item has been added.");
       }
     } catch (error) {
-      // console.log(error);
+      console.log(error);
       console.log(error.response.data.error);
       toast.error(error.response.data.error);
     }
@@ -41,9 +64,20 @@ const Add = () => {
         <div className="add-img-upload flex-col">
           <p>Upload Image</p>
           <label htmlFor="image">
-            <img src={assets.upload_area} alt="" />
+            <img
+              src={displayPhoto ? displayPhoto : assets.upload_area}
+              alt=""
+            />
           </label>
-          <input type="file" id="image" hidden />
+          <input
+            type="file"
+            id="image"
+            onChange={(e) => {
+              setPhoto(e.target.files[0]);
+              imgConvert(e.target.files[0]);
+            }}
+            hidden
+          />
         </div>
 
         <div className="add-product-name flex-col">
