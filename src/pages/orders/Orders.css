@@ -1,0 +1,66 @@
+/* General Page Styling */
+.order.add {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order.add h3 {
+  text-align: center;
+  color: #333;
+  font-family: "Arial", sans-serif;
+  margin-bottom: 20px;
+}
+
+/* Order Table Styling */
+.order-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.order-table thead {
+  background-color: #f7f7f7;
+}
+
+.order-table th,
+.order-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-family: "Arial", sans-serif;
+  font-size: 14px;
+}
+
+.order-table th {
+  font-weight: bold;
+  color: #555;
+}
+
+.order-table td img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.order-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .order-table th,
+  .order-table td {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+
+  .order-table td img {
+    width: 40px;
+    height: 40px;
+  }
+}
