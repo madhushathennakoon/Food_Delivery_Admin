@@ -7,6 +7,8 @@ import List from "./pages/list/List";
 import Orders from "./pages/orders/Orders";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Login from "./pages/login/Login";
+import Register from "./pages/register/Register";
 
 const App = () => {
   return (
@@ -17,6 +19,9 @@ const App = () => {
       <div className="app-content">
         <SideBar />
         <Routes>
+          {/* <Route path="/" element={<Login />} /> */}
+          {/* <Route path="/register" element={<Register />} /> */}
+
           <Route path="/add" element={<Add />} />
           <Route path="/list" element={<List />} />
           <Route path="/orders" element={<Orders />} />
