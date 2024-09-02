@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./List.css";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 const List = () => {
   const [list, setList] = useState();
@@ -58,6 +59,22 @@ const List = () => {
               </div>
             );
           })}
+      </div>
+      <br />
+      <hr />
+      <br />
+      <div>
+        <Link className="link" to="/add">
+          Add Item
+        </Link>
+        <br />
+        <Link className="link" to="/orders">
+          orders
+        </Link>
+        <br />
+        <Link className="link" to="/list">
+          List Item
+        </Link>
       </div>
     </div>
   );

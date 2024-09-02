@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import axios from "axios";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -24,10 +26,11 @@ const Login = () => {
         //save the user to local storage
         localStorage.setItem("user", JSON.stringify(response.data));
 
-        // window.location.replace("/");
+        window.location.replace("/add");
       }
     } catch (error) {
       toast.error(error.response.data.message);
+      console.log(error);
     }
   };
 
@@ -54,7 +57,7 @@ const Login = () => {
         <button className="loginButton">Login</button>
       </form>
       <button className="loginRegisterButton">
-        <Link className="link" to="/register">
+        <Link className="link" to="/">
           Register
         </Link>
       </button>

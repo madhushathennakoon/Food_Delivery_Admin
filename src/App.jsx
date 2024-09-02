@@ -16,17 +16,17 @@ const App = () => {
       <ToastContainer />
       <NavBar />
       <hr />
-      <div className="app-content">
-        <SideBar />
-        <Routes>
-          {/* <Route path="/" element={<Login />} /> */}
-          {/* <Route path="/register" element={<Register />} /> */}
+      {/* <div className="app-content"> */}
+      {/* <SideBar /> */}
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Register />} />
 
-          <Route path="/add" element={<Add />} />
-          <Route path="/list" element={<List />} />
-          <Route path="/orders" element={<Orders />} />
-        </Routes>
-      </div>
+        <Route path="/add" element={<Add />} />
+        <Route path="/list" element={<List />} />
+        <Route path="/orders" element={<Orders />} />
+      </Routes>
+      {/* </div> */}
     </div>
   );
 };

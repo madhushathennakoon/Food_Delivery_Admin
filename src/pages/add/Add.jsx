@@ -5,8 +5,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import app from "../../firebase";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
-
-// imageUrl
+import { Link } from "react-router-dom";
 
 const Add = () => {
   const [name, setName] = useState("");
@@ -136,6 +135,20 @@ const Add = () => {
           ADD
         </button>
       </form>
+      <br />
+      <hr />
+      <br />
+      <Link className="link" to="/add">
+        Add Item
+      </Link>
+      <br />
+      <Link className="link" to="/orders">
+        orders
+      </Link>
+      <br />
+      <Link className="link" to="/list">
+        List Item
+      </Link>
     </div>
   );
 };

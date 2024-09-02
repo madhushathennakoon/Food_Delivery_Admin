@@ -23,13 +23,13 @@ const Register = () => {
       );
       console.log(response);
 
-      if (response.status === 200) {
+      if (response.status === 201) {
         //save the user to local storage
         localStorage.setItem("user", JSON.stringify(response.data));
 
         toast.success("registration succesfull");
-        // setTimeout(40000);
-        // window.location.replace("/login");
+        setTimeout(40000);
+        window.location.replace("/login");
       }
     } catch (error) {
       toast.error(error.response.data.message);
@@ -68,7 +68,7 @@ const Register = () => {
         <button className="registerButton">Register</button>
       </form>
       <button className="registerLoginButton">
-        <Link className="link" to="/">
+        <Link className="link" to="/login">
           Login
         </Link>
       </button>

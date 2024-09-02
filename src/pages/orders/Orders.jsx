@@ -3,6 +3,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { assets } from "../../assets/assets";
 import "./Orders.css";
+import { Link } from "react-router-dom";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
@@ -102,6 +103,20 @@ const Orders = () => {
             ))}
         </tbody>
       </table>
+      <br />
+      <hr />
+      <br />
+      <Link className="link" to="/add">
+        Add Item
+      </Link>
+      <br />
+      <Link className="link" to="/orders">
+        orders
+      </Link>
+      <br />
+      <Link className="link" to="/list">
+        List Item
+      </Link>
     </div>
   );
 };
